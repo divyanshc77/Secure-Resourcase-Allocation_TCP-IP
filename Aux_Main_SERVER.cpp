@@ -49,7 +49,7 @@ public:
             cout << "Could not open the file: " << filename << "\n";
         }
 
-        // Additional logic to read data into customerData and orderData maps
+        //to read data into customerData and orderData maps
         ifstream dataFile("Customer.csv");
         if (dataFile.is_open()) {
             string dataLine;
@@ -62,7 +62,8 @@ public:
                 getline(ss, _, ','); // Skip the 3rd column
                 getline(ss, orderNo, ','); // Read the 4th column as Order no.
 
-                // Remove quotes if present
+                // to remove quotes if present
+                //not neccessary
                 customerID.erase(remove(customerID.begin(), customerID.end(), '\"'), customerID.end());
                 orderNo.erase(remove(orderNo.begin(), orderNo.end(), '\"'), orderNo.end());
 
