@@ -57,7 +57,7 @@ public:
             cout << "Could not open the file: " << filename << "\n";
         }
 
-        // Additional logic to read data into customerData and orderData maps
+        //Reading into maps
         ifstream dataFile("Customer.csv");
         if (dataFile.is_open()) {
             string dataLine;
@@ -89,7 +89,7 @@ public:
         ifstream orderFile("dataAvailable.csv");
         if (orderFile.is_open()) {
             string orderLine;
-            getline(orderFile, orderLine); // Skip the header line
+            getline(orderFile, orderLine); // Skiping the header line
             while (getline(orderFile, orderLine)) {
                 stringstream ss(orderLine);
                 string sno, customerID, orderNo;
@@ -234,7 +234,7 @@ int main() {
 
     // Producer Client Code
     string dataForAuthentication =
-        "CUST12345,ORD12345\n"
+        "CUST96540,ORD96540\n"
         "CUST67890,ORD67890\n"
         "CUST23456,ORD23456\n"
         "CUST78901,ORD78901\n"
@@ -243,7 +243,7 @@ int main() {
         "CUST45678,ORD45678\n"
         "CUST90123,ORD90123\n"
         "CUST56789,ORD56789\n"
-        "CUST01234,ORD01234\n";
+        "CUST95644,ORD95644\n";
 
     SOCKET clientSocket = socket(AF_INET, SOCK_STREAM, 0);
     if (clientSocket == INVALID_SOCKET) {
