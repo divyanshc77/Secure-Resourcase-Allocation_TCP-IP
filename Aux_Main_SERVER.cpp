@@ -86,7 +86,8 @@ public:
                 getline(ss, customerID, ',');
                 getline(ss, orderNo, ',');
 
-                // Remove quotes if present
+                // Quotes removal
+                //not necessary 
                 customerID.erase(remove(customerID.begin(), customerID.end(), '\"'), customerID.end());
                 orderNo.erase(remove(orderNo.begin(), orderNo.end(), '\"'), orderNo.end());
 
@@ -122,7 +123,7 @@ public:
             cout << endl;
         }
 
-        // Additional logic to display customerData and orderData
+        // to display customerData and orderData
         cout << "Data from Customer.csv:" << endl;
         for (const auto& data : customerData) {
             cout << "Customer ID: " << data.first << ", Order no.: " << data.second << endl;
@@ -159,11 +160,11 @@ public:
             this_thread::sleep_for(chrono::seconds(10));
         }
 
-        // Close the server socket and clean up WinSock
+        // Close the server socket 
         closeTCPServer();
     }
 
-    // Function to start the TCP server
+    // Fn to start the TCP server
     bool startTCPServer() {
         WSADATA wsaData;
         if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
@@ -201,7 +202,7 @@ public:
         return true;
     }
 
-    // Function to close the TCP server
+    // Fn to close the TCP server
     void closeTCPServer() {
         closesocket(serverSocket);
         WSACleanup();
